@@ -38,4 +38,11 @@ public class CompanyController {
     public Object getAllBaby() {
         return ResponseUtil.ok(companyRepo.findAll());
     }
+
+    @PostMapping("/update")
+    public Object updateArticle(@RequestParam String name, @RequestParam String introduce,
+                                @RequestParam Integer id) {
+        companyRepo.updateCompany(name, introduce, id);
+        return ResponseUtil.ok();
+    }
 }

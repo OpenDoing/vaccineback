@@ -27,4 +27,6 @@ public interface BabyRepo extends JpaRepository<Baby,Integer>{
     Baby findBabyById(Integer id);
 
     List<Baby> findAll();
+
+    List<Baby> findBabiesByUid(Integer uid);
 }

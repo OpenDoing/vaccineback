@@ -66,6 +66,18 @@ public class BabyController {
         return ResponseUtil.ok(baby);
     }
 
+    @GetMapping("/getSomeone")
+    public Object getSomeone(@RequestParam Integer uid) {
+        List<Baby> babies = babyRepo.findBabiesByUid(uid);
+        for (Baby baby:babies){
+            Calendar cS = Calendar.getInstance();
+            cS.setTime(baby.getItime());
+            cS.add(Calendar.DAY_OF_MONTH, 1);
+            baby.setItime(cS.getTime());
+        }
+        return ResponseUtil.ok(babies);
+    }
+
     @GetMapping("/all")
     public Object getAllBaby() {
         List<Baby> babies = babyRepo.findAll();

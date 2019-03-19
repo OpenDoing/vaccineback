@@ -54,6 +54,11 @@ public class VaccineQueryController {
         return ResponseUtil.ok();
     }
 
+    @GetMapping("/get")
+    public Object getOneVaccine(@RequestParam Integer id) {
+        return ResponseUtil.ok(vaccineRepo.findById(id));
+    }
+
     @GetMapping("/all")
     public Object getAllVaccine() {
         return ResponseUtil.ok(vaccineRepo.findAll());
